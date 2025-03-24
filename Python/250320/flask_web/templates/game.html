@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>game</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        {% include "header.html" %}
+    </head>
+    <body>
+        <p>{{nickname}}님, 가위바위보를 선택하세요</p>
+        <select id="user_select">
+            <option value = 1>가위</option>
+            <option value = 2>바위</option>
+            <option value = 3>보</option>
+        </select>
+        <button>시작</button>
+        <ul></ul>
+        <script>
+            // 버튼 태그가 클릭이 되면
+            $('button').click(
+                function() {
+                    // id가 user_select인 태그 가져오기
+                    let user_select = $('#user_select').val()
+                    
+                    $.ajax({
+                        url : '/game_result',
+                        method: 'get',
+                        dataType: 'json',
+                        data : {
+                            'user' : user_select
+                        },
+                        success : function(res) {
+                            console.log(res)
+                            res_data = res['user']
+                            $('ul').append(
+                                `
+                                <li>
+                                    유저: ${res['user']},
+                                    서버: ${res['server']},
+                                    결과: ${res['result']}
+                                </li>
+                                `
+                            )
+                        },
+                        error: function(err) {
+                            console.err(err)
+                        }
+                    })
+                }
+            )
+
+            
+        </script>
+    </body>
+</html>

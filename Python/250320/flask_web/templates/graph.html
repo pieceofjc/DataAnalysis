@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>그래프</h1>
+    <!--<br>
+    <button onclick="location.href='/'">로그인 페이지 이동</button>-->
+
+    <canvas id="myChart"></canvas>
+    <canvas id="myChart1"></canvas>
+    <canvas id="myChart2"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    const onoff = document.getElementById('myChart');
+    
+    new Chart(onoff, {
+        type: 'line',
+        data: {
+        labels: {{online_x_data | tojson}},
+        datasets: [{
+            label: '# Online Total Profit',
+            data: {{online_y_data | tojson}},
+            borderWidth: 1
+        },{
+            label: '# Offline Total Profit',
+            data: {{offline_y_data | tojson}},
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+
+    const online = document.getElementById('myChart1');
+    
+    new Chart(online, {
+        type: 'line',
+        data: {
+        labels: {{online_x_data | tojson}},
+        datasets: [{
+            label: '# Online Total Profit',
+            data: {{online_y_data | tojson}},
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+
+    const offline = document.getElementById('myChart2');
+    
+    new Chart(offline, {
+        type: 'bar',
+        data: {
+        labels: {{offline_x_data | tojson}},
+        datasets: [{
+            label: '# Offline Total Profit',
+            data: {{offline_y_data | tojson}},
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+    </script>
+</body>
+</html>

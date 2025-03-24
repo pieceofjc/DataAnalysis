@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <input type = "password" name = "user_pass1" id = "pass1">
+        <input type = "password" name = "user_pass2" id = "pass2">
+        <p></p>
+        <input type = "submit" id = "submit">
+        
+        <script>
+            $('#pass2').keyup(
+                function () {
+                    let pass1 = $('#pass1').val()
+                    let pass2 = $('#pass2').val()
+                    if(pass1 != pass2) {
+                        $('#submit').attr("disabled", true)
+                        $('p').html("<b>비밀번호 불일치</b>")
+                    } else {
+                        $('#submit').attr("disabled", false)
+                        $('p').html("<b>비밀번호 일치</b>")
+                    }
+                }
+            )
+
+            /*$('#submit').click(function () {
+                let pass = $('#pass2').val()
+            
+                $.ajax({
+                    type: "POST",
+                    data: { password: pass },
+                    url: "http://127.0.0.1:5000/signup",
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function(res) {
+                        console.log(res)
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                })
+
+            })*/
+        </script>
+
+    </body>
+</html>
+<style>
+</style>
