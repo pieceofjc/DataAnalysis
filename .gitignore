@@ -3,5 +3,7 @@ Python/02_corona.ipynb
 Python/test.xlsx
 Python/250311/
 */.venv/
-*/__pycache__/
+**/__pycache__
 **/results
+logistic_regression/
+finance_bigdata_lecture-main/
