@@ -1,4 +1,7 @@
-data/
+**/data/
 Python/02_corona.ipynb
 Python/test.xlsx
 Python/250311/
+*/.venv/
+*/__pycache__/
+**/results
