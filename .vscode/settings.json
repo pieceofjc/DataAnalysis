@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\sers\\SAMSUNG\\.conda\\envs\\py311",
+    "python.pythonPath": "C:\\users\\SAMSUNG\\.conda\\envs\\py311",
     "terminal.integrated.shellArgs.windows": ["/K", "C:\\ProgramData\\anaconda3\\Scripts\\activate.bat C:\\ProgramData\\anaconda3 & conda activate py311"],
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
 }
